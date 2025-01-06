@@ -1,0 +1,16 @@
+.homepage{
+    background: rgb(0,0,83);
+background: radial-gradient(circle, rgb(0, 0, 77) 0%, rgb(6, 6, 32) 100%);
+min-height: 100vh;
+}
+
+.bgImg{
+    width: 100%;
+    background-image: url('../assets/Modern - 2 (1).png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    object-fit: cover;
+    
+}
