@@ -60,7 +60,7 @@ const HomePage = () => {
                 RAISING
                 <span className="relative ml-4 inline-flex items-center">
                   STANDARDS
-                  <div className="absolute -right-28 flex flex-col gap-3 justify-center pt-0 ml-6">
+                  <div className="hidden absolute -right-28 md:flex flex-col gap-3 justify-center pt-0 ml-6">
                     {[52, 72, 92].map((width, i) => (
                       <motion.div
                         key={i}
@@ -81,7 +81,7 @@ const HomePage = () => {
 
             <motion.p 
               variants={textVariants}
-              className="oswald leading-snug text-lg opacity-80 max-w-lg"
+              className="oswald leading-snug text-base md:text-lg opacity-80 max-w-xs md:max-w-lg"
             >
               Since I Was 14, Always Wondering And Exploring TECH And Try To Create Everything Present
               On The Internet That's Why Coding Is Not My Work, It Is A HOBBY And PASSION,
