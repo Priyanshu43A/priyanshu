@@ -12,7 +12,7 @@ const WorkPage = () => {
             description: 'Workflow is my personal idea and project i spended 2 months on. Workflow solves major problems in industry standard work culture. You can create teams, assign tasks and much more. Do try it out on your own.',
             role: 'Developer and Designer',
             url: 'https://workflow-priyanshu-e6be8f79f114.herokuapp.com/',
-            tech: ['React', 'Node.js', 'MongoDB', 'Express']
+            tech: ['React', 'Node.js', 'MongoDB', 'Express', 'Tailwind CSS' ]
         },
         {
             id: 2,
@@ -21,7 +21,7 @@ const WorkPage = () => {
             description: 'OYE KALAKAR is a marketplace where artists can sell their artwork, receive orders, and earn commission. It is a platform for artists to reach a wider audience and build their reputation.',
             role: 'Frontend Developer and Designer',
             url: 'https://oyekalakar-eight.vercel.app/',
-            tech: ['React', 'Next.js', 'Tailwind CSS', 'Firebase']
+            tech: ['React', 'Express', 'Node.js', 'MongoDB', 'Tailwind CSS', 'Firebase']
         },
         {
             id: 3,
@@ -30,7 +30,7 @@ const WorkPage = () => {
             description: 'Chain connect is a web3 based social media application, that also offers great features and crypto benefits.',
             role: 'Frontend Developer and Designer',
             url: 'https://chain-connect-blush.vercel.app/',
-            tech: ['React', 'Web3.js', 'Solidity', 'Ethereum']
+            tech: ['React', 'Tailwind CSS']
         },
         {
             id: 4,
@@ -39,7 +39,7 @@ const WorkPage = () => {
             description: 'Obys aency is a award winning website. and i tried to recreate its frontend at my own...',
             role: 'Frontend Developer and Designer',
             url: 'https://obys-agency-five.vercel.app/',
-            tech: ['React', 'GSAP', 'Framer Motion', 'Tailwind CSS']
+            tech: ['HTML', 'CSS', 'GSAP', 'JS', 'Tailwind CSS']
         },
         {
             id: 5,
@@ -48,7 +48,7 @@ const WorkPage = () => {
             description: 'This is a gym website teamplate, i coded to showcase my skills and attract some major clients.',
             role: 'Developer and Designer',
             url: 'https://planet-fitness-eight.vercel.app/',
-            tech: ['React', 'Tailwind CSS', 'Framer Motion']
+            tech: ['HTML', 'CSS', 'GSAP', 'JS', 'Tailwind CSS']
         },
         {
             id: 6,
@@ -57,7 +57,7 @@ const WorkPage = () => {
             description: 'This is a practice project, where i tried to made a better and responsive version of google notes, and i actually maded it..',
             role: 'Developer and Designer',
             url: 'https://notes-eight-eta.vercel.app/',
-            tech: ['React', 'Firebase', 'Material UI']
+            tech: ['HTML', 'CSS', 'GSAP', 'JS', 'Tailwind CSS']
         }
     ];
 
