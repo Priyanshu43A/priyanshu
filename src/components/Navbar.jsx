@@ -102,7 +102,7 @@ const Navbar = () => {
               animate="open"
               exit="closed"
               variants={mobileMenuVariants}
-              className="fixed inset-0 top-16 bg-black/95 backdrop-blur-lg md:hidden"
+              className="fixed h-screen flex justify-center items-center inset-0 top-14 bg-black/95 backdrop-blur-lg md:hidden"
             >
               <div className="flex flex-col items-center justify-center h-full gap-8">
                 {navItems.map((item, index) => (
