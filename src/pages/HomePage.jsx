@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Avatar from '../assets/mainImg.png';
 import CyberTyping from '../components/CyberTyping';
-import './HomePage.css'
+import './Homepage.css'
 
 const HomePage = () => {
   useEffect(() => {
