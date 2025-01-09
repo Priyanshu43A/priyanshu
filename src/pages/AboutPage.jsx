@@ -340,7 +340,7 @@ const AboutPage = () => {
           <div>
             
           </div>
-          <button className='py-2  px-8 ml-auto mr-0 float-right rounded-lg w-fit bg-gray-300 font-medium oswald'>Contact meh</button>
+          <button className='py-2 md:mt-0 mt-8 px-8 ml-auto mr-0 float-right rounded-lg w-fit bg-gray-300 font-medium oswald'>Contact meh</button>
     
        </div>
        
