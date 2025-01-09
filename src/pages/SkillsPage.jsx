@@ -45,8 +45,8 @@ const SkillsAndContact = () => {
   ];
 
   return (
-    <div className="min-h-screen py-40 bg-[#090f1d] text-white p-6 md:p-12 lg:p-16">
-      <div className="w-11/12 mt-20 max-w-7xl mx-auto grid md:grid-cols-2 gap-12 lg:gap-24">
+    <div className="min-h-screen py-10 md:py-40 bg-[#090f1d] text-white p-6 md:p-12 lg:p-16">
+      <div className="w-11/12 mt-0 md:mt-20 max-w-7xl mx-auto grid md:grid-cols-2 gap-12 lg:gap-24">
         {/* Left Column */}
         <div className="space-y-16">
           {/* Skills Section */}
@@ -77,7 +77,7 @@ const SkillsAndContact = () => {
                     <Skill.icon
                       className={`w-8 h-8 ${Skill.color} transition-all duration-300 group-hover:scale-110`}
                     />
-                    <div className="absolute z-[999999] -bottom-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 text-sm text-white/80 whitespace-nowrap">
+                    <div className="absolute z-[999999999999] -bottom-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 text-sm text-white/80 whitespace-nowrap">
                       {Skill.name}
                     </div>
                   </div>
