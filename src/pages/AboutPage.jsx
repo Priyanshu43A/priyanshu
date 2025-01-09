@@ -285,7 +285,7 @@ const AboutPage = () => {
           {/* Social Icons - Even More Compact */}
           <div className='md:col-span-1 col-span-2 space-y-4' >
 
-          <div className="h-12  bg-slate-900/50 backdrop-blur-sm px-3 rounded-2xl border border-slate-800/50 hover:border-blue-500/50 transition-all flex items-center justify-around">
+          <div className="h-16  bg-slate-900/50 backdrop-blur-sm px-3 rounded-2xl border border-slate-800/50 hover:border-blue-500/50 transition-all flex items-center justify-around">
           <>
               {[
                 { icon: FaGithub, link: 'https://github.com/Priyanshu43A' },
