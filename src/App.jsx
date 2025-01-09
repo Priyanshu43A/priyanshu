@@ -4,16 +4,18 @@ import './App.css'
 import HomePage from './pages/HomePage'
 import Navbar from './components/Navbar'
 import WorkPage from './pages/WorkPage'
-import SkillsPage from './pages/SkillsPage'
 import AboutPage from './pages/AboutPage'
+import SkillsAndContact from './pages/SkillsPage'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
     <div className='main-app'>
       <HomePage />
-      <WorkPage />  
-       <SkillsPage />
        <AboutPage />
+      <WorkPage />  
+       <SkillsAndContact />
+       <Footer />
     </div>
   )
 }

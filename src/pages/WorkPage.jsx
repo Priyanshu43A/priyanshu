@@ -62,7 +62,7 @@ const WorkPage = () => {
     ];
 
     return (
-        <div className='workPage min-h-screen w-full bg-[#020617] relative'>
+        <div className='workPage pb-20 min-h-screen w-full bg-[#020617] relative'>
             <motion.div 
                 className='w-11/12 text-white pt-20 mx-auto'
                 initial={{ opacity: 0 }}

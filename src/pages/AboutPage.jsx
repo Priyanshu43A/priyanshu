@@ -4,6 +4,10 @@ import photo1 from '../assets/pic1.jpg'
 import photo2 from '../assets/pic2.jpg'
 import photo3 from '../assets/pic3.jpg'
 import photo4 from '../assets/pic4.jpg'
+import cover from '../assets/thumbnail.webp'
+import { FaGithub, FaInstagram, FaWhatsapp, FaYoutube } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
+
 
 
 
@@ -220,7 +224,7 @@ const GalleryBox = () => {
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen bg-slate-950 p-4 md:p-6">
+    <div id='about' className="min-h-screen bg-slate-950 p-4 md:p-6">
       <div className="" />
       
       <div className="relative z-10 max-w-5xl mx-auto">
@@ -240,7 +244,7 @@ const AboutPage = () => {
           <div className="col-span-2 row-span-2 bg-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-800/50 hover:border-blue-500/50 transition-all overflow-hidden">
             <div className="relative aspect-video">
               <img 
-                src="/api/placeholder/800/400" 
+                src={cover} 
                 alt="Story" 
                 className="w-full h-full object-cover"
               />
@@ -282,10 +286,27 @@ const AboutPage = () => {
           <div className='md:col-span-1 col-span-2 space-y-4' >
 
           <div className="h-12  bg-slate-900/50 backdrop-blur-sm px-3 rounded-2xl border border-slate-800/50 hover:border-blue-500/50 transition-all flex items-center justify-around">
-            <Twitter className="w-4 h-4 text-slate-300 hover:text-blue-400 cursor-pointer transition-colors" />
-            <Github className="w-4 h-4 text-slate-300 hover:text-slate-100 cursor-pointer transition-colors" />
-            <Linkedin className="w-4 h-4 text-slate-300 hover:text-blue-500 cursor-pointer transition-colors" />
-            <Mail className="w-4 h-4 text-slate-300 hover:text-violet-400 cursor-pointer transition-colors" />
+          <>
+              {[
+                { icon: FaGithub, link: 'https://github.com/Priyanshu43A' },
+                // { icon: FaYoutube, link: 'https://www.youtube.com/@gwpriyanshu43' },
+                { icon: FaXTwitter, link: 'https://x.com/Priyans29193156' },
+                { icon: FaInstagram, link: 'https://instagram.com/maibhideveloper' },
+                { icon: FaWhatsapp, link: 'https://chat.whatsapp.com/H3UkSzpmVHg6gjKCaCUHuC' },
+
+
+              ].map((social, index) => (
+                <a
+                  key={index}
+                  href={social.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors duration-300"
+                >
+                  <social.icon className="w-5 h-5 text-white/60 hover:text-white" />
+                </a>
+              ))}
+            </>
           </div>
 
 
@@ -306,17 +327,20 @@ const AboutPage = () => {
 
           {/* Color Matcher Game */}
           <div className="bg-slate-900/50 col-span-2 w-full md:col-span-1  mx-auto backdrop-blur-sm p-4 rounded-2xl border border-slate-800/50 hover:border-blue-500/50 transition-all">
-         
+
+         <p className='text-white text-xs mb-4'>Find  <span className='font-medium'> CODE, UI, UX, WEB, APP</span></p>
             <WordSearch />
        
           </div>
 
-          <div className="bg-slate-900/50 md:col-span-2 col-span-2 w-full mx-auto backdrop-blur-sm p-4 rounded-2xl border border-slate-800/50 hover:border-blue-500/50 transition-all">
+          <div className="bg-slate-900/50 flex flex-col justify-between md:col-span-2 col-span-2 w-full mx-auto backdrop-blur-sm p-4 rounded-2xl border border-slate-800/50 hover:border-blue-500/50 transition-all">
            <h1 className='font-medium text-white anton text-2xl poppins-regular' >I love to write, that's why i am a good speaker.</h1>
            
-           <p className='text-white italic mt-4 w-10/12 mx-auto'>"In a world bound by rules and doctrines, I choose to craft my own reality—where logic dances with imagination, and beliefs are not chains but wings that let me soar beyond the ordinary."</p>
-          
-          <button className='py-2 px-8 ml-auto mr-0 float-right mt-4 rounded-lg w-fit inline bg-gray-300 font-medium oswald'>Contact meh</button>
+           <p className='text-white  italic mt-4 w-10/12 mx-auto'>"In a world bound by rules and doctrines, I choose to craft my own reality—where logic dances with imagination, and beliefs are not chains but wings that let me soar beyond the ordinary."</p>
+          <div>
+            
+          </div>
+          <button className='py-2  px-8 ml-auto mr-0 float-right rounded-lg w-fit bg-gray-300 font-medium oswald'>Contact meh</button>
     
        </div>
        
