@@ -15,10 +15,10 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { title: 'Home', href: '#' },
-    { title: 'Work', href: '#' },
-    { title: 'About', href: '#' },
-    { title: 'Contact', href: '#' }
+    { title: 'Home', href: '#home' },
+    { title: 'Work', href: '#projects' },
+    { title: 'About', href: '#about' },
+    { title: 'Contact', href: '#contact' }
   ];
 
   const containerVariants = {
@@ -56,7 +56,7 @@ const Navbar = () => {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className={`fixed w-11/12 mx-auto px-6 md:px-12 py-4 z-50 transition-all duration-300 ${
+      className={`fixed w-11/12 z-[999999999999999] mx-auto px-6 md:px-12 py-4 transition-all duration-300 ${
         scrolled ? 'bg-black/80 backdrop-blur-md' : 'bg-transparent'
       }`}
     >

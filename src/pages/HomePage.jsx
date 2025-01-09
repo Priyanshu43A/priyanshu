@@ -25,7 +25,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="min-h-screen homepage relative overflow-hidden bg-[#020617]">
+    <div id='home' className="min-h-screen homepage relative overflow-hidden bg-[#020617]">
       <div className="absolute bgImg inset-0">
         <div className="absolute bgImg inset-0 bg-[linear-gradient(to_right,#0f1729,#0a0f1d)]" />
         <motion.div 

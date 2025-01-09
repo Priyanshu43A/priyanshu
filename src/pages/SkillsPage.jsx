@@ -45,12 +45,13 @@ const SkillsAndContact = () => {
   ];
 
   return (
-    <div className="min-h-screen py-10 md:py-40 bg-[#090f1d] text-white p-6 md:p-12 lg:p-16">
+    <div id="contact" className="min-h-screen py-10 md:py-40 bg-[#090f1d] text-white p-6 md:p-12 lg:p-16">
       <div className="w-11/12 mt-0 md:mt-20 max-w-7xl mx-auto grid md:grid-cols-2 gap-12 lg:gap-24">
         {/* Left Column */}
         <div className="space-y-16">
           {/* Skills Section */}
           <motion.div
+          id="skills"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}

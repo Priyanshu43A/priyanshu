@@ -17,7 +17,7 @@ const Footer = () => {
       className="pt-32 relative bg-[#08091f]"
     >
       {/* Gradient Divider */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <div className="h-px w-11/12 mx-auto bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
