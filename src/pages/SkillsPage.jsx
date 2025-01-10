@@ -93,7 +93,7 @@ const SkillsAndContact = () => {
   }, []);
 
   return (
-    <div className="min-h-screen py-10 md:py-20 bg-[#090f1d] text-white">
+    <div className="min-h-screen block py-10 md:py-20 bg-[#090f1d] text-white">
       <div className="w-11/12 max-w-7xl mx-auto space-y-20">
         {/* Skills Section - Compact Version */}
         <motion.section

@@ -15,6 +15,9 @@ body {
 /* Prevent scrollbars from appearing when scrolling */
 html, body {
   overflow: -moz-scrollbars-none; /* For older browsers */
+  height: 100%;
+  width: 100%;
+  scroll-behavior: smooth;
 }
 
  

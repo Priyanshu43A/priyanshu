@@ -16,10 +16,8 @@ const useLenis = () => {
 
     requestAnimationFrame(raf);
 
-    console.log('Lenis initialized:', lenis);
-
     return () => {
-      lenis.destroy(); // Cleanup on unmount
+      lenis.destroy(); // Clean up on unmount
     };
   }, []);
 };
