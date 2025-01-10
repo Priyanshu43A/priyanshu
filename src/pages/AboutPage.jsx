@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Twitter, Github, Linkedin, Mail, Code, Palette, Play, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import photo1 from '../assets/pic1.jpg'
 import photo2 from '../assets/pic2.jpg'
@@ -7,6 +7,176 @@ import photo4 from '../assets/pic4.jpg'
 import cover from '../assets/thumbnail.webp'
 import { FaGithub, FaInstagram, FaWhatsapp, FaYoutube } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
+import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
+import { AnimatePresence, motion } from 'framer-motion';
+import { HiX } from 'react-icons/hi';
+
+// Initialize EmailJS with your public key
+emailjs.init("A4UXz2L1aSIRijg-v");
+
+const CTAModal = ({ isOpen, onClose }) => {
+  const formRef = useRef();
+  const [formData, setFormData] = useState({
+    from_name: "", // Changed from 'name' to match template
+    from_email: "", // Changed from 'email' to match template
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const loadingToastId = toast.loading("Sending your message...");
+
+    try {
+      // Using template parameters that match your EmailJS template
+      const templateParams = {
+        from_name: formData.from_name,
+        from_email: formData.from_email,
+        message: formData.message,
+        to_name: "Your Name", // Add this if your template expects it
+      };
+
+      const result = await emailjs.send(
+        "service_5ahg9rr",
+        "template_oim1fy9",
+        templateParams
+      );
+
+      console.log("Email sent successfully:", result.text);
+      toast.update(loadingToastId, {
+        render: "Message sent successfully! 🎉",
+        type: "success",
+        isLoading: false,
+        autoClose: 3000,
+        closeButton: true,
+      });
+      setFormData({ from_name: "", from_email: "", message: "" });
+      onClose();
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      toast.update(loadingToastId, {
+        render: "Failed to send message. Please try again later. 😢",
+        type: "error",
+        isLoading: false,
+        autoClose: 5000,
+        closeButton: true,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 text-white bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={onClose}
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            className="bg-[#0c1015] rounded-2xl p-6 md:p-8 max-w-md w-full border border-white/10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-xl font-semibold text-white">
+                Let's Collaborate
+              </h3>
+              <button
+                onClick={onClose}
+                className="p-2 rounded-lg hover:bg-white/5 transition-colors"
+              >
+                <HiX className="w-5 h-5 text-white/60" />
+              </button>
+            </div>
+
+            <div className="space-y-6">
+              {/* Quick Contact Options */}
+              <div className="space-y-4">
+                <a
+                  href="mailto:jashram826@gmail.com"
+                  className="flex items-center justify-center w-full py-3 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium transition-all duration-300"
+                >
+                  Send Email
+                </a>
+
+                <a
+                  href="https://calendly.com/jashram826/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 text-white font-medium transition-all duration-300"
+                >
+                  Schedule a Call
+                </a>
+              </div>
+
+              {/* Or divider */}
+              <div className="flex items-center gap-4">
+                <div className="h-px flex-1 bg-white/10" />
+                <span className="text-white/40 text-sm">or</span>
+                <div className="h-px flex-1 bg-white/10" />
+              </div>
+
+              {/* Contact Form */}
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <input
+                  type="text"
+                  name="from_name"
+                  value={formData.from_name}
+                  onChange={handleChange}
+                  placeholder="Your Name"
+                  required
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 placeholder:text-white/30"
+                />
+                <input
+                  type="email"
+                  name="from_email"
+                  value={formData.from_email}
+                  onChange={handleChange}
+                  placeholder="Your Email"
+                  required
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 placeholder:text-white/30"
+                />
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={3}
+                  placeholder="Brief message about your project..."
+                  required
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 placeholder:text-white/30 resize-none"
+                />
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </button>
+              </form>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
 
 
 
@@ -223,7 +393,10 @@ const GalleryBox = () => {
 
 
 const AboutPage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
+    <> 
     <div id='about' className="min-h-screen bg-slate-950 p-4 md:p-6">
       <div className="" />
       
@@ -340,7 +513,9 @@ const AboutPage = () => {
           <div>
             
           </div>
-          <button className='py-2 md:mt-0 mt-8 px-8 ml-auto mr-0 float-right rounded-lg w-fit bg-gray-300 font-medium oswald'>Contact meh</button>
+          <button 
+                onClick={() => setIsModalOpen(true)}
+          className='py-2 md:mt-0 mt-8 px-8 ml-auto mr-0 float-right rounded-lg w-fit bg-gray-300 font-medium oswald'>Contact me.</button>
     
        </div>
        
@@ -348,6 +523,20 @@ const AboutPage = () => {
         </div>
       </div>
     </div>
+    <CTAModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+    </>
   );
 };
 
