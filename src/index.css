@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+body {
+  scrollbar-width: none; /* Hides scrollbar */
+}
+
+/* Prevent scrollbars from appearing when scrolling */
+html, body {
+  overflow: -moz-scrollbars-none; /* For older browsers */
+}
+
+ 
 
 .barlow-thin {
     font-family: "Barlow", serif;
