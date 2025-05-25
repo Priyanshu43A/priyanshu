@@ -60,15 +60,34 @@ const SkillsAndContact = () => {
   useEffect(() => {
     const fetchMediumArticles = async () => {
       try {
-        // Replace with your Medium RSS feed URL
-        const MEDIUM_RSS_URL =
-          "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@jashram826";
+        // Using Medium's API endpoint
+        const MEDIUM_USERNAME = "jashram826";
+        const MEDIUM_API_URL = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${MEDIUM_USERNAME}`;
 
-        const response = await fetch(MEDIUM_RSS_URL);
+        const response = await fetch(MEDIUM_API_URL);
         const data = await response.json();
 
         if (data.status === "ok" && data.items) {
-          setArticles(data.items.slice(0, 3)); // Get latest 3 articles
+          const formattedArticles = data.items.map((item) => {
+            // Get the thumbnail from the content or use the default thumbnail
+            const contentMatch = item.content?.match(/<img[^>]+src="([^">]+)"/);
+            const thumbnail = contentMatch?.[1] || item.thumbnail || null;
+
+            return {
+              title: item.title,
+              description:
+                item.description.replace(/<[^>]*>/g, "").substring(0, 200) +
+                "...",
+              link: item.link,
+              thumbnail: thumbnail,
+              pubDate: item.pubDate,
+              categories: item.categories || ["Technology"],
+            };
+          });
+
+          setArticles(formattedArticles);
+        } else {
+          console.error("Error fetching Medium articles:", data);
         }
         setArticlesLoading(false);
       } catch (error) {
@@ -290,12 +309,19 @@ const SkillsAndContact = () => {
                         </h3>
 
                         <p className="text-white/70 text-sm mb-4 line-clamp-3">
-                          {article.description.replace(/<[^>]*>/g, "")}
+                          {article.description}
                         </p>
 
                         <div className="flex items-center justify-between text-xs text-white/50">
                           <span>
-                            {new Date(article.pubDate).toLocaleDateString()}
+                            {new Date(article.pubDate).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                              }
+                            )}
                           </span>
                           <span className="flex items-center gap-1">
                             <span className="w-2 h-2 rounded-full bg-green-400"></span>
